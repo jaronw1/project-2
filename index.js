@@ -8,10 +8,10 @@ app.set('view engine, ejs')
 app.use(express.urlencoded({ extended: false}))
 
 app.get('/', (req, res) => {
-    res.send('welcome to the auth api!')
+    res.render('index.ejs')
 })
 
-app.use('users'), require('./controllers/users.js')
+app.use('/users', require('./controllers/users.js'))
 
 
 app.listen(PORT, () => {
