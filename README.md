@@ -23,9 +23,9 @@ ERD
 
 # WIREFRAME OF VIEWS
 ![Alt text](/imgs/login-form-v2.webp "")
-![Alt text](/imgs/shop-homepage.png"")
-![Alt text](/imgs/shopping-cart-page-02.png"")
-![Alt text](/imgs/one-page-template-preview-68878.jpg"")
+![Alt text](/imgs/shop-homepage.png "")
+![Alt text](/imgs/shopping-cart-page-02.png "")
+![Alt text](/imgs/one-page-template-preview-68878.jpg "")
 
 
 
