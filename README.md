@@ -20,11 +20,17 @@ ERD
 
 
 
-#WIREFRAME OF VIEWS
-Partials for header and footer.
+
+# WIREFRAME OF VIEWS
+![Alt text](/imgs/login-form-v2.webp "")
+![Alt text](/imgs/shop-homepage.png"")
+![Alt text](/imgs/shopping-cart-page-02.png"")
+![Alt text](/imgs/one-page-template-preview-68878.jpg"")
+
 
 
 # USER STORIES
+As a user I want to be able to brose through cars and see their models and prices .
 
 
 # MVP
