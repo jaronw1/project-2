@@ -17,8 +17,7 @@ RESTFUL Routing
 ![Alt text](/imgs/restfulRouting2.png "")
 
 ERD
-
-
+![Alt text](/imgs/Untitled.drawio.png.png "")
 
 
 # WIREFRAME OF VIEWS
