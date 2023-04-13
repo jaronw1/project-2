@@ -1,0 +1,23 @@
+<%- include ("../partials/header.ejs") %>
+
+
+<h2> Car Names</h2>
+
+<h3>Car info</h3>
+
+<!-- <p>Name: <%= cars["Make_Name"] %></p>
+<p>Model: <%= cars.Model_Name %></p> -->
+
+<!-- cars/show.ejs -->
+
+<ul>
+    <% cars.Results.forEach(function(car) { %>
+        <form method="POST">
+      <h2><%= car.Model_Name %></h2>
+      <button class="text" type="submit">Add to Cart</button>
+    </form>
+    <% }); %>
+  </ul>
+  
+  <%- include ("../partials/footer.ejs") %>
+</form>

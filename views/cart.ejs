@@ -1,0 +1,15 @@
+<%- include ("./partials/header.ejs") %>
+
+<h1>Carted Items</h1>
+<ul>
+    <% cars.forEach(function(car) { %>
+        <li>
+
+            <%= cars.name %>
+        </li>
+    
+    <% }) %>
+ 
+
+
+<%- include ("./partials/footer.ejs") %>

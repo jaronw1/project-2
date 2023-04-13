@@ -3,4 +3,9 @@ USER MODEL
 email: string -- unique in database
 password: string -- password123
 
+
+
+sequelize init
 sequelize model:create --name user --attributes email:string,password:string
+sequelize db:migrate
+
