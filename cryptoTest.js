@@ -1,18 +1,27 @@
+
 const axios = require('axios')
 const db = require('./models')
+const vehicle = require('./models/vehicle')
 
-db.vehicle.create({
-     make_name: Honda,
-     model_name: Accord
+async function start() {
+    const reset = await db.vehicle.sync({ force:true })
 
-    
-})
-
-
+}
+start()
 
 
+// router.post('/', async (req, res)=>{
+//     try{
+//         let allVehicles = db.vehicle.findAll(
+            
+//         )
+//         res.render(allVehicles)
 
 
+//     } catch(err) {
+//         console.log(err)
+//     }
+// })
 
 
 
@@ -85,5 +94,23 @@ db.vehicle.create({
 // console.log(decryptedMessage.toString(cryptoJs.enc.Utf8))
 
 
+//OLD CODE FOR SHOW EJS
 
-c
+
+// <!-- <p>Name: <%= cars["Make_Name"] %></p>
+// <p>Model: <%= cars.Model_Name %></p> -->
+
+// <!-- cars/show.ejs -->
+
+// <!-- <ul>
+//     <% cars.Results.forEach(function(car) { %>
+//       <h2><%= car.Make_Name %> <%= car.Model_Name %></h2>
+//       <form method="POST" action="">
+//         <input hidden type="text" name="carname" value="<%= car.Make_Name %> <%= car.Model_Name %>">
+//       <button class="text" type="submit">Add to Cart</button>
+//     </form>
+//     <% }); %>
+
+
+//   </ul>
+//   -->

@@ -15,9 +15,6 @@ module.exports = {
       make_name: {
         type: Sequelize.STRING
       },
-      user_id: {
-        type: Sequelize.INTEGER
-      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
@@ -25,11 +22,7 @@ module.exports = {
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE
-      },
-      cart: {
-        type: Sequelize.STRING
       }
-
     });
   },
   async down(queryInterface, Sequelize) {

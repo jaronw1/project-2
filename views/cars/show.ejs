@@ -1,23 +1,24 @@
-<%- include ("../partials/header.ejs") %>
+<%- include ("../partials/header.ejs" ) %>
 
 
 <h2> Car Names</h2>
 
 <h3>Car info</h3>
 
-<!-- <p>Name: <%= cars["Make_Name"] %></p>
-<p>Model: <%= cars.Model_Name %></p> -->
 
-<!-- cars/show.ejs -->
-
-<ul>
-    <% cars.Results.forEach(function(car) { %>
-      <h2><%= car.Make_Name %> <%= car.Model_Name %></h2>
-      <form method="POST" action="">
-        <input hidden type="text" name="carname" value="<%= car.Make_Name %> <%= car.Model_Name %>">
-      <button class="text" type="submit">Add to Cart</button>
-    </form>
-    <% }); %>
-  </ul>
-  
-  <%- include ("../partials/footer.ejs") %>
+  <%for (const vehicleName of vehicle ) { %>
+        
+    <div class="tile">
+        <div class="tileHeader">
+            <h3><%=vehicleName.make_name%> <%=vehicleName.model_name%></h3>
+        </div>
+        <div class="link">
+            <form method="POST" action="/users/profile?cartId=<%=vehicleName.id%>">
+                <input hidden id="name" type="text" name="name" value="<%=vehicleName.make_name%> <%=vehicleName.model_name%>">
+                <button type="submit"><a href="/profile/cart" >Add to Cart</a></button>
+            </form>
+        </div>
+    </div>
+    <% } %>
+   
+  <%- include ("../partials/footer.ejs") %> 

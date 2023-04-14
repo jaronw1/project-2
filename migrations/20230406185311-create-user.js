@@ -22,9 +22,6 @@ module.exports = {
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE
-      },
-      cart: {
-        type: Sequelize.STRING
       }
     });
   },

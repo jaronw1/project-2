@@ -16,19 +16,21 @@ router.get('/', (req, res) => {
 })
 
 
-// router.put('/cart', (req, res) => {
-//     if() {
+router.put('/cart', (req, res) => {
+    if() {
 
 
-//     } else {
-//         res.send('')
+    } else {
+        res.send('')
 
-//     }
+    }
 
-// })
+})
 
 
-router.delete('/')
+router.delete('/', (req, res) => {
+
+})
 
 
 module.exports = router;

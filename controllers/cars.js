@@ -14,24 +14,67 @@ const user = require('../models/user');
 // })
 
 
-
-
-
 router.get('/', async (req, res) =>{
+    const vehicle = await db.vehicle.findAll()
+      res.render('cars/show.ejs', {
+          vehicle:vehicle
+      })
     axios.get(`https://vpic.nhtsa.dot.gov/api/vehicles/GetModelsForMakeIdYear/makeId/474/modelyear/2020?format=json`)
     .then(apiResponse => {
         const cars = apiResponse.data
         // console.log(cars)
-        res.render('cars/show', {cars: cars})
-        // let vehicles = db.vehicles.findOrCreate({
-        //     where: {
-        //         make_name:cars,
-        //         make_id:cars
-        //     }
-        // })
+        // res.render('cars/show', {cars: cars})
+        cars.Results.forEach(car => {
+            db.vehicle.findOrCreate({
+                where: {
+                    make_name: car.Make_Name,
+                    model_name: car.Model_Name
+                }
+            })
+            
+        });
+        
+
+        console.log(cars.Make_Name)
+
+
+        
 
     })
 })
+
+
+router.get('/', async(req, res) => {
+    try{
+      const vehicle = await db.vehicle.findAll()
+      res.render('cars/show.ejs', {
+          vehicle:vehicle,
+      })
+    }catch(err){
+      console.log('Oops That didnt work')
+    }
+  })
+  
+  
+  
+  
+  
+  
+  
+  
+
+// router.get('/', async (req, res) => {
+//     try{
+
+
+//     }catch {
+
+//     }
+// })
+
+
+
+
 
 
 router.post('/', async (req, res) =>{
@@ -42,23 +85,10 @@ router.post('/', async (req, res) =>{
     } else {
         // console.log('request', req.body)
 
-
-        let foundUser = await db.user.findOne({
-            where: {
-                id: res.locals.user.id,
-                //cart: req.body.carname
-            }
-        })
-
-
         await db.cart.update(
-            {userId: user.id},
-            {vehicleId: }
-        )
-
-        await db.vehicle.findOne(
-            {cart: req.body.carname},
-            {where: {user_id:foundUser.id}}
+            {vehicleId: req.body.carname},
+            {userId: {user_id:foundUser.id}},
+            res.redirect('/')
         )
     }
 
