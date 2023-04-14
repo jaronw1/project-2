@@ -4,7 +4,7 @@ const db = require('../models')
 const axios = require('axios')
 
 
-router.get('/profile', (req, res) => {
+router.get('/', (req, res) => {
     // if the user comes and is not logged -- they lack authorization
     if(!res.locals.user) {
         // redirect them ot the login
@@ -17,7 +17,7 @@ router.get('/profile', (req, res) => {
 
 
 // router.put('/cart', (req, res) => {
-//     if(!res) {
+//     if() {
 
 
 //     } else {

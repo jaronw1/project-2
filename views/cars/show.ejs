@@ -12,12 +12,12 @@
 
 <ul>
     <% cars.Results.forEach(function(car) { %>
-        <form method="POST">
-      <h2><%= car.Model_Name %></h2>
+      <h2><%= car.Make_Name %> <%= car.Model_Name %></h2>
+      <form method="POST">
+        <input hidden type="text" name="carname" value="<%= car.Make_Name %> <%= car.Model_Name %>">
       <button class="text" type="submit">Add to Cart</button>
     </form>
     <% }); %>
   </ul>
   
   <%- include ("../partials/footer.ejs") %>
-</form>

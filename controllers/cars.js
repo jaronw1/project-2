@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../models')
-const axios = require('axios')
+const axios = require('axios');
+const user = require('../models/user');
 
 
 
@@ -20,20 +21,51 @@ router.get('/', async (req, res) =>{
     axios.get(`https://vpic.nhtsa.dot.gov/api/vehicles/GetModelsForMakeIdYear/makeId/474/modelyear/2020?format=json`)
     .then(apiResponse => {
         const cars = apiResponse.data
-        console.log(cars)
+        // console.log(cars)
         res.render('cars/show', {cars: cars})
+        // let vehicles = db.vehicles.findOrCreate({
+        //     where: {
+        //         make_name:cars,
+        //         make_id:cars
+        //     }
+        // })
+
     })
 })
 
 
 router.post('/', async (req, res) =>{
-    let cart = await db.user.findOrCreate({
-        where: {
-            cart: req.body.cart
-        }
-    })
-    res.redirect('/cart')
-    res.send(req.body)
+    try{
+
+    if(!res.locals.user){
+        res.redirect('/users/login?message=You are not authorized to view that page. Please authenticate to continue 😎')
+    } else {
+        // console.log('request', req.body)
+
+
+        let foundUser = await db.user.findOne({
+            where: {
+                id: res.locals.user.id,
+                //cart: req.body.carname
+            }
+        })
+
+        await db.user.update(
+            {cart: req.body.carname},
+            {where: {id:foundUser.id}}
+        )
+
+        await db.vehicle.findOrCreate(
+            {cart: req.body.carname},
+            {where: {user_id:foundUser.id}}
+        )
+    }
+
+
+    // res.send(req.body.carname)
+} catch(error) {
+    console.log(error)
+}
 })
 
     

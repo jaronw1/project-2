@@ -62,11 +62,9 @@ app.get('/', (req, res) => {
 
 
 
-
-
 app.use('/users', require('./controllers/users.js'))
 app.use('/cars', require('./controllers/cars.js'))
-// app.use('/profile', require('./controllers/cart.js'))
+app.use('/profile', require('./controllers/profile.js'))
 
 
 
