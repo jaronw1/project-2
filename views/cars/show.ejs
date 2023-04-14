@@ -1,6 +1,6 @@
 <%- include ("../partials/header.ejs" ) %>
 
-
+<div class="text-center">
 <h2> Car Names</h2>
 
 <h3>Car info</h3>
@@ -14,11 +14,12 @@
         </div>
         <div class="link">
             <form method="POST" action="/users/profile?cartId=<%=vehicleName.id%>">
-                <input hidden id="name" type="text" name="name" value="<%=vehicleName.make_name%> <%=vehicleName.model_name%>">
+                <input hidden id="name" type="text" name="carname" value="<%=vehicleName.make_name%> <%=vehicleName.model_name%>">
                 <button type="submit"><a href="/profile/cart" >Add to Cart</a></button>
             </form>
         </div>
     </div>
     <% } %>
+</div>
    
   <%- include ("../partials/footer.ejs") %> 

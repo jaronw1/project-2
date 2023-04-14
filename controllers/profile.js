@@ -16,16 +16,24 @@ router.get('/', (req, res) => {
 })
 
 
-router.put('/cart', (req, res) => {
-    if() {
-
-
-    } else {
-        res.send('')
-
-    }
+router.get('/cart', (req, res)=>{
+    res.render('../views/cart.ejs')
 
 })
+
+
+
+
+// router.put('/cart', (req, res) => {
+//     if() {
+
+
+//     } else {
+//         res.send('')
+
+//     }
+
+// })
 
 
 router.delete('/', (req, res) => {

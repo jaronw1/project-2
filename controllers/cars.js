@@ -33,35 +33,9 @@ router.get('/', async (req, res) =>{
             })
             
         });
-        
-
-        console.log(cars.Make_Name)
-
-
-        
-
     })
 })
 
-
-router.get('/', async(req, res) => {
-    try{
-      const vehicle = await db.vehicle.findAll()
-      res.render('cars/show.ejs', {
-          vehicle:vehicle,
-      })
-    }catch(err){
-      console.log('Oops That didnt work')
-    }
-  })
-  
-  
-  
-  
-  
-  
-  
-  
 
 // router.get('/', async (req, res) => {
 //     try{
@@ -84,12 +58,25 @@ router.post('/', async (req, res) =>{
         res.redirect('/users/login?message=You are not authorized to view that page. Please authenticate to continue 😎')
     } else {
         // console.log('request', req.body)
+        res.render('profile/cart')
+        const carName = req.body.carname
+        
+        
 
-        await db.cart.update(
-            {vehicleId: req.body.carname},
-            {userId: {user_id:foundUser.id}},
-            res.redirect('/')
-        )
+
+        
+
+        
+
+
+
+
+        // await db.cart.update(
+        //     {vehicleId: req.body.carname},
+        //     {userId: {user_id:foundUser.id}},
+        // )
+        
+
     }
 
 

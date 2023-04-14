@@ -13,10 +13,10 @@
 </head>
 <body>
     <nav>
-        <ul>
+        <ul class="list-unstyled">
             <li><a href='/'>Home</a></li>
             <% if (user) { %>
-                
+            <div class="text-center">
             <li><a href='/users/profile'>profile</a></li>
              <li><a href='/users/logout'>logout</a></li>
              <li><a href='/profile/cart'>Cart</a></li>
@@ -25,6 +25,8 @@
             <% } else { %>
             <li><a href='/users/new'>Sign Up</a></li>
             <li><a href='/users/login'>Login</a></li>
+        </div>
+
             <% } %>
 
 
