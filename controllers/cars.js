@@ -50,12 +50,13 @@ router.post('/', async (req, res) =>{
             }
         })
 
-        await db.user.update(
-            {cart: req.body.carname},
-            {where: {id:foundUser.id}}
+
+        await db.cart.update(
+            {userId: user.id},
+            {vehicleId: }
         )
 
-        await db.vehicle.findOrCreate(
+        await db.vehicle.findOne(
             {cart: req.body.carname},
             {where: {user_id:foundUser.id}}
         )

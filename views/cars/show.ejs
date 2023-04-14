@@ -13,7 +13,7 @@
 <ul>
     <% cars.Results.forEach(function(car) { %>
       <h2><%= car.Make_Name %> <%= car.Model_Name %></h2>
-      <form method="POST">
+      <form method="POST" action="">
         <input hidden type="text" name="carname" value="<%= car.Make_Name %> <%= car.Model_Name %>">
       <button class="text" type="submit">Add to Cart</button>
     </form>
