@@ -4,8 +4,10 @@ email: string -- unique in database
 password: string -- password123
 
 
-
+sequelize db:create
 sequelize init
 sequelize model:create --name user --attributes email:string,password:string
+sequelize model:create --name cart --attributes userId:integer,vehicleId:integer
+sequelize model:create --name vehicle -attributes model_name:string,make_name:string
 sequelize db:migrate
 

@@ -17,9 +17,9 @@ const vehicle = require('../models/vehicle');
 
 router.get('/', async (req, res) =>{
     const vehicle = await db.vehicle.findAll()
-      res.render('cars/show.ejs', {
-          vehicle:vehicle
-      })
+    res.render('cars/show.ejs', {
+        vehicle:vehicle
+    })
     axios.get(`https://vpic.nhtsa.dot.gov/api/vehicles/GetModelsForMakeIdYear/makeId/474/modelyear/2020?format=json`)
     .then(apiResponse => {
         const cars = apiResponse.data
@@ -33,7 +33,8 @@ router.get('/', async (req, res) =>{
                 }
             })
             
-        });
+        })
+        
     })
 })
 
@@ -54,10 +55,6 @@ router.post('/', async (req, res) =>{
             }
         
         })
-
-        
-
-
         // let sendCartoCart= req.body.carname
         // res.send('/profile', req.body.carname)
 
