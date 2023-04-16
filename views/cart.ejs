@@ -1,7 +1,22 @@
 <%- include ("./partials/header.ejs") %>
 
 <h1>Carted Items</h1>
-<ul>
+<%for (const cartItem of cart ) { %>
+        
+    <div class="tile">
+        <div class="tileHeader">
+            <h3> <%=vehicleName.model_name%></h3>
+        </div>
+        <div class="link">
+            <form method="PUT" action="/cars">
+                <input hidden id="name" type="text" name="carname" value="<%=vehicleName.make_name%> <%=vehicleName.model_name%>">
+                <input hidden id="vehicleId" type="text" name="vehicleId" value="<%=vehicleName.id%>">
+                <button type="submit"> Add to Cart</button>
+            </form>
+        </div>
+    </div>
+    <% } %>
+</div>
     
 </ul>
  

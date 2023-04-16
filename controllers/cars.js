@@ -3,6 +3,7 @@ const router = express.Router();
 const db = require('../models')
 const axios = require('axios');
 const user = require('../models/user');
+const vehicle = require('../models/vehicle');
 
 
 
@@ -37,19 +38,6 @@ router.get('/', async (req, res) =>{
 })
 
 
-// router.get('/', async (req, res) => {
-//     try{
-
-
-//     }catch {
-
-//     }
-// })
-
-
-
-
-
 
 router.post('/', async (req, res) =>{
     try{
@@ -58,25 +46,24 @@ router.post('/', async (req, res) =>{
         res.redirect('/users/login?message=You are not authorized to view that page. Please authenticate to continue 😎')
     } else {
         // console.log('request', req.body)
-        res.render('profile/cart')
-        const carName = req.body.carname
+        //update cart datbase
+        await db.cart.findOrCreate({
+            where: {
+                userId: res.locals.user.id,
+                vehicleId: req.body.vehicleId
+            }
         
-        
+        })
 
-
-        
-
-        
-
-
-
-
-        // await db.cart.update(
-        //     {vehicleId: req.body.carname},
-        //     {userId: {user_id:foundUser.id}},
-        // )
         
 
+
+        // let sendCartoCart= req.body.carname
+        // res.send('/profile', req.body.carname)
+
+        // res.render('profile/cart')
+        // const carName = req.body.carname
+        // console.log(req.body.carname)
     }
 
 
