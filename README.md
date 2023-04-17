@@ -6,6 +6,12 @@ Create a auth login
 # Live website
 https://project-2-deploy.herokuapp.com/
 
+# Installations Process:
+* Fork and Clone
+* npm i
+* sequelize db:create
+* sequelize db:migrate
+
 
 
 # APIS I'll use
