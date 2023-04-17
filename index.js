@@ -5,11 +5,14 @@ const cookieParser = require('cookie-parser')
 const cryptoJs = require('crypto-js')
 const db = require('./models')
 const axios = require('axios')
+const methodOverride = require('method-override');
+
 
 // app config
 const app = express()
 const PORT = process.env.PORT || 8000
 app.set('view engine', 'ejs')
+app.use(methodOverride('_method'))
 
 // middlewares
 // parse html from request bodies

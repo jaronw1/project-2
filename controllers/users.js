@@ -4,6 +4,8 @@ const router = express.Router()
 const db = require('../models')
 const bcrypt = require('bcrypt')
 const crytpoJs = require('crypto-js')
+const methodOverride = require('method-override');
+
 
 // GET /users/new -- show route for a form that creates a new user (sign up for the app)
 router.get('/new', (req, res) => {
@@ -105,7 +107,30 @@ router.get('/profile', (req, res) => {
 })
 
 
+router.put("/profile", async (req, res) => {
+    try {
+      const { newPassword } =
+        req.body;
+      const { user } = res.locals;
   
+      if (newPassword) {
+        // Hash new password
+        const hashedPassword = await bcrypt.hash(newPassword, 12);
+  
+        // Update password in db
+        await db.user.update(
+          { password: hashedPassword },
+          { where: { id: user.id } }
+        );
+      }
+  
+    
+      res.redirect('/users/profile/');
+    } catch (err) {
+      console.log(err);
+      res.status(500).send("Internal Server Error");
+    }
+  });
 
 
 

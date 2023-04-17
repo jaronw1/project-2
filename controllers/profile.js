@@ -104,8 +104,20 @@ router.get('/cart', async (req, res) => {
 
 
 
-router.delete('/cart', (req, res)=>{
-    res.render('/cart')
+router.delete('/cart', async (req, res)=>{
+    try{
+         await db.cart.destroy({
+            where: {
+                userId: res.locals.user.id,
+                vehicleId: req.body.delete
+            }
+          })
+          res.redirect('/profile/cart/');
+
+
+    } catch(error) {
+        console.error
+    }
 
 })
 

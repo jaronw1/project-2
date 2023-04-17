@@ -8,8 +8,9 @@
             <h3> <%=cartItem.make_name%> <%=cartItem.model_name%></h3>
         </div>
         <div class="link">
-        <form method="DELETE" action="/profile/cart">
-            <button type="submit"> Delete from Cart</button>
+            <form method="POST" action="/profile/cart?_method=DELETE" >
+                <input hidden id="delete" type="text" name="delete" value="<%=cartItem.id%>">
+                <button type="submit"> Delete from Cart</button>
         </form>
         </div>
     </div>

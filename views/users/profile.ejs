@@ -4,6 +4,20 @@
 
 <p>I hope you enjoy using our app!</p>
 
+
+<div class="centered">
+    <h3>Reset Password</h3>
+    <form method="POST" action="/users/profile?_method=PUT" >
+      <div>
+        <label for="new-password" class="form-label">New Password:</label>
+        <input type="password" name="newPassword" id="new-password" required>
+      </div>
+        <button type="submit">Reset Password</button>
+    </form>
+  </div>
+
+
+
 <a href>User Cart</a>
 
 <%- include ('../partials/footer.ejs') %>
